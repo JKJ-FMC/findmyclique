@@ -18,6 +18,7 @@ import {
 import Logout from '@mui/icons-material/Logout';
 import FestivalIcon from '@mui/icons-material/Festival';
 import UserForm from '../UserForm/UserForm';
+import UserEvents from '../Events/UserEvents';
 import './Navbar.css';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
@@ -51,6 +52,16 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
 
   const handleCloseModal = () => {
     setOpenModal(false);
+  };
+
+  const [openEventsModal, setOpenEventsModal] = useState(false);
+
+  const handleOpenEventsModal = () => {
+    setOpenEventsModal(true);
+  };
+
+  const handleCloseEventsModal = () => {
+    setOpenEventsModal(false);
   };
 
   const userId = useSelector((state) => state.auth.id);
@@ -152,9 +163,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                     className="menu-icon"
                     sx={{ width: 24, height: 24 }}
                   />
-                  <Link to={`/myevents/${userId}`}>
-                    <span>My Events</span>
-                  </Link>
+                  {/* <Link to={`/myevents/${userId}`}> */}
+                  <span onClick={handleOpenEventsModal}>My Events</span>
+                  {/* </Link> */}
                 </MenuItem>
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <Avatar
@@ -181,6 +192,11 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
             <div>
               <Dialog open={openModal} onClose={handleCloseModal}>
                 <UserForm handleCloseModal={handleCloseModal} />
+              </Dialog>
+            </div>
+            <div>
+              <Dialog open={openEventsModal} onClose={handleCloseEventsModal}>
+                <UserEvents handleCloseEventsModal={handleCloseEventsModal} />
               </Dialog>
             </div>
           </div>
