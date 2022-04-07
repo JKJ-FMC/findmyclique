@@ -1,0 +1,101 @@
+.ft {
+  display: flex;
+  height: 25vh;
+  background: #f06543;
+  color: black;
+  padding: 1rem;
+  /* position: absolute; */
+  bottom: 0;
+  font-family: 'Roboto', sans-serif;
+  /* margin-top: 25px; */
+}
+
+.ft-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.ft-headline {
+  padding: 10px;
+}
+
+.ft-logo {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.ft-logo img {
+  width: 200px;
+  height: 20vh;
+  object-fit: contain;
+}
+
+.ft-left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ft-left p {
+  margin: 0.3rem;
+  font-size: small;
+}
+
+.ft-center {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ft-center p {
+  margin: 0.3rem;
+  font-size: small;
+}
+
+.ft-center-phone {
+  display: flex;
+  margin: 0.3rem;
+}
+
+.ft-right {
+  display: flex;
+  flex: 1;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.ft-right-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.ft-link-ft {
+  text-decoration: none;
+  color: black;
+}
+
+.ft-link-ft:hover {
+  text-decoration: underline;
+  color: #310052;
+}
+
+@media only screen and (max-width: 600px) {
+  .ft-left {
+    display: none;
+  }
+
+  .ft-logo {
+    display: none;
+  }
+}

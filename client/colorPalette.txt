@@ -1,0 +1,7 @@
+COLOR PALETTE:
+
+DARK PURPLE -> #11001d, 
+PURPLE -> #310052, 
+ORANGE -> #f06543, 
+YELLOW -> #ffd95c, 
+GOLD -> #ffc300 

@@ -1,0 +1,74 @@
+.login_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f8f5f1;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+  height: 90vh;
+  background-color: #fff;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: #ffffff;
+  padding: 100px 40px;
+  /* color: #fff; */
+}
+
+.login_form_element {
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form_container {
+  display: flex;
+  width: 90vw;
+  height: 90vh;
+  box-shadow: 0px 0px 5px 5px #0000001f;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.login-form > div > input {
+  outline: none;
+  box-shadow: 0px 0px 5px #0000005b;
+  border: 1px solid #000000;
+  color: #000000;
+  padding: 7px;
+  margin: 10px 0;
+}
+
+.login-form > div {
+  margin: 10px;
+}
+
+.submit-btn {
+  padding: 10px 0;
+  background-color: #000000;
+  color: #fff;
+  border-radius: 20px;
+  border: none;
+  font-size: 1.1rem;
+}
+
+.email {
+  margin-top: 10px;
+}
+
+.right-side {
+  background: url("https://i.ibb.co/G2mgzSY/3495739.jpg");
+  width: 50vw;
+  height: 90vh;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-repeat: no-repeat;
+  background-color: rgb(253, 240, 225);
+  background-position: bottom;
+  text-align: center;
+}
