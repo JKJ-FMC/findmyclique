@@ -12,7 +12,7 @@ import Chat from './components/Chat/Chat';
 import { ToastContainer, Slide } from 'react-toastify';
 import axios from 'axios';
 import { Search } from './components/Navbar/Search';
-import { Quiz } from './components/Events/Quiz';
+import Quiz from './components/Events/Quiz';
 
 /**
  * COMPONENT
@@ -88,7 +88,7 @@ class Routes extends Component {
           </Switch>
         )}
         <ToastContainer
-          position="top-right"
+          position="bottom-center"
           autoClose={2000}
           hideProgressBar
           newestOnTop={true}
