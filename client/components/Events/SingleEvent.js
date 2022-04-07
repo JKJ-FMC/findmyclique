@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getLikedUsers } from '../../store/likedUsers';
-import './SingleEvent.css';
 import { Loader } from '@googlemaps/js-api-loader';
 import pic from '../../../public/default.png';
 import EventMap from './EventMap';
@@ -12,6 +11,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Avatar from '@mui/material/Avatar';
 import AvatarGroup from '@mui/material/AvatarGroup';
+import './SingleEvent.css';
 
 export default function SingleEvent() {
   const { id } = useParams();
