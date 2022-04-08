@@ -221,7 +221,8 @@ async function seed() {
   //events
   // const eventbrite = await seedEvents();
   // console.log('eventbrite: ', eventbrite.length);
-  await seedSeatGeek();
+  const seatgeek = await seedSeatGeek();
+  // console.log('seatgeek: ', seatgeak.length);
 
   const allEvents = await Event.findAll();
 

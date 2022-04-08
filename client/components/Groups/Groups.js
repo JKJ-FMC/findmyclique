@@ -6,18 +6,15 @@ import { toast } from 'react-toastify';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import Favorite from '@mui/icons-material/Favorite';
 import { likeEvent, unlikeEvent, getUserLikedEvents } from '../../store';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link } from 'react-router-dom';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import './Groups.css';
 
-import './UserEvents.css';
-
-const UserEvents = ({ handleCloseEventsModal }) => {
+const Groups = ({ handleCloseGroupsModal }) => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.auth.id) || 'not logged in';
@@ -25,10 +22,6 @@ const UserEvents = ({ handleCloseEventsModal }) => {
   const user = useSelector((state) => state.users).filter(
     (user) => user.id === userId
   )[0];
-
-  // const userEvents = user.events;
-  // const userEvents = dispatch(getUserLikedEvents(userId));
-  // console.log(userEvents)
 
   const likedEvents = useSelector((state) =>
     state.likedEvents.filter((ev) => ev.likedUserId === userId)
@@ -40,6 +33,10 @@ const UserEvents = ({ handleCloseEventsModal }) => {
     );
   };
 
+  const userGroups = user.groups;
+
+  //   console.log('USER IN GROUPS COMP --->', userGroups);
+
   const userEvents = [];
 
   for (let i = 0; i < likedEvents.length; i++) {
@@ -47,24 +44,29 @@ const UserEvents = ({ handleCloseEventsModal }) => {
     userEvents.push(currEvent);
   }
 
+  let g = [];
+  userGroups.forEach((group) =>
+    g.push(likedEvents.find((ev) => ev.id === group.eventId))
+  );
+
+  console.log('USER GROUP EVENTS --->', g);
+
+  console.log('USER--->', user);
+
   return (
-    <div className="user-events-container">
+    <div className="group-events-container">
       <Card
-        className="user-events-card-wrap"
+        className="group-events-card-wrap"
         sx={{ display: 'flex', width: '50%', minWidth: 610 }}
       >
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <h1 className="user-events-page-title">My Events</h1>
-          {/* <div className="user-events-wrap"> */}
+          <h1 className="group-events-page-title">My Groups</h1>
           {userEvents.map((event) => {
             return (
-              <div key={event.id} className="user-event">
+              <div key={event.id} className="group-event">
                 {injectStyle()}
-                <div className="user-event-item">
-                  <Card
-                    // className="user-event-item"
-                    sx={{ display: 'flex', width: '100%' }}
-                  >
+                <div className="group-event-item">
+                  <Card sx={{ display: 'flex', width: '100%' }}>
                     <CardMedia
                       component="img"
                       sx={{ width: 150 }}
@@ -72,29 +74,29 @@ const UserEvents = ({ handleCloseEventsModal }) => {
                       alt={event.imageUrl}
                     />
                     <CardContent
-                      className="user-event-content"
+                      className="group-event-content"
                       // sx={{ flex: '1 0 auto' }}
                     >
-                      <div className="user-event-text">
-                        <div className="user-event-title">
+                      <div className="group-event-text">
+                        <div className="group-event-title">
                           <h2>{event.name}</h2>
                         </div>
-                        <div className="user-event-date-time">
+                        <div className="group-event-date-time">
                           <h4>
                             {dateFormat(event.date, 'longDate')} at{' '}
                             {event.startTime}
                           </h4>
                         </div>
                         <div
-                          className="user-event-info"
+                          className="group-event-info"
                           style={{ fontStyle: 'italic' }}
                         >
                           {event.venueName}
                         </div>
-                        <div className="user-event-info">{event.location}</div>
+                        <div className="group-event-info">{event.location}</div>
                       </div>
-                      <div className="user-event-icons">
-                        <div className="uEvent-icon">
+                      <div className="group-event-icons">
+                        <div className="group-icon">
                           <Link to={`/events/${event.city}/${event.id}`}>
                             <VisibilityIcon
                               fontSize="medium"
@@ -109,7 +111,7 @@ const UserEvents = ({ handleCloseEventsModal }) => {
                             />
                           </Link>
                         </div>
-                        <div className="uEvent-icon">
+                        <div className="group-icon">
                           <Checkbox
                             className="checkbox"
                             icon={<FavoriteBorder />}
@@ -145,4 +147,4 @@ const UserEvents = ({ handleCloseEventsModal }) => {
   );
 };
 
-export default UserEvents;
+export default Groups;

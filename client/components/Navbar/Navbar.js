@@ -17,11 +17,14 @@ import {
 } from '@mui/material';
 import Logout from '@mui/icons-material/Logout';
 import FestivalIcon from '@mui/icons-material/Festival';
+import GroupsIcon from '@mui/icons-material/Groups';
 import UserForm from '../UserForm/UserForm';
 import UserEvents from '../Events/UserEvents';
+import Groups from '../Groups/Groups';
 import './Navbar.css';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
+  // Profile Menu
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -33,6 +36,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
     setAnchorEl(null);
   };
 
+  // Events Menu
   const [anchorElEvent, setAnchorElEvent] = useState(null);
   const openEvent = Boolean(anchorElEvent);
 
@@ -44,16 +48,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
     setAnchorElEvent(null);
   };
 
-  const [openModal, setOpenModal] = useState(false);
+  // User Form Modal
+  const [openFormModal, setOpenFormModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setOpenModal(true);
+  const handleOpenFormModal = () => {
+    setOpenFormModal(true);
   };
 
-  const handleCloseModal = () => {
-    setOpenModal(false);
+  const handleCloseFormModal = () => {
+    setOpenFormModal(false);
   };
 
+  // Events Form Modal
   const [openEventsModal, setOpenEventsModal] = useState(false);
 
   const handleOpenEventsModal = () => {
@@ -62,6 +68,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
 
   const handleCloseEventsModal = () => {
     setOpenEventsModal(false);
+  };
+
+  // Groups Form Modal
+  const [openGroupsModal, setOpenGroupsModal] = useState(false);
+
+  const handleOpenGroupsModal = () => {
+    setOpenGroupsModal(true);
+  };
+
+  const handleCloseGroupsModal = () => {
+    setOpenGroupsModal(false);
   };
 
   const userId = useSelector((state) => state.auth.id);
@@ -83,9 +100,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
           onClick={handleClickMenuEvent}
           style={{ cursor: 'pointer' }}
         >
-          {/* <Link className="nav-links hover-underline-animation" to="/events"> */}
           EVENTS
-          {/* </Link> */}
         </div>
         <div>
           <Menu
@@ -161,23 +176,31 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <FestivalIcon
                     className="menu-icon"
-                    sx={{ width: 24, height: 24 }}
+                    sx={{ width: 26, height: 26 }}
                   />
-                  {/* <Link to={`/myevents/${userId}`}> */}
                   <span onClick={handleOpenEventsModal}>My Events</span>
-                  {/* </Link> */}
                 </MenuItem>
+
+                <MenuItem className="menu-item">
+                  <GroupsIcon
+                    className="menu-icon"
+                    sx={{ width: 26, height: 26 }}
+                  />
+                  <span onClick={handleOpenGroupsModal}>My Groups</span>
+                </MenuItem>
+
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <Avatar
                     className="menu-icon"
-                    sx={{ width: 24, height: 24, bgcolor: '#310052' }}
+                    sx={{ width: 26, height: 26, bgcolor: '#310052' }}
                   />
-                  <span onClick={handleOpenModal}>Edit Profile</span>
+                  <span onClick={handleOpenFormModal}>Edit Profile</span>
                 </MenuItem>
+
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <Logout
                     className="menu-icon"
-                    sx={{ width: 24, height: 24 }}
+                    sx={{ width: 26, height: 26 }}
                   />
                   <Link
                     to="/"
@@ -190,13 +213,18 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
               </Menu>
             </div>
             <div>
-              <Dialog open={openModal} onClose={handleCloseModal}>
-                <UserForm handleCloseModal={handleCloseModal} />
+              <Dialog open={openFormModal} onClose={handleCloseFormModal}>
+                <UserForm handleCloseFormModal={handleCloseFormModal} />
               </Dialog>
             </div>
             <div>
               <Dialog open={openEventsModal} onClose={handleCloseEventsModal}>
                 <UserEvents handleCloseEventsModal={handleCloseEventsModal} />
+              </Dialog>
+            </div>
+            <div>
+              <Dialog open={openGroupsModal} onClose={handleCloseGroupsModal}>
+                <Groups handleCloseGroupsModal={handleCloseGroupsModal} />
               </Dialog>
             </div>
           </div>
