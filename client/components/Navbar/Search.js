@@ -52,7 +52,7 @@ const Autocomplete = ({ hits, currentRefinement = 'odobjsfg', refine }) => (
     </li>
     <div className="search-results hidden">
       {hits.map((hit) => (
-        <FeaturedEvent key={hit?.objectID} event={hit} />
+        <p>{hit.name}</p>
       ))}
     </div>
   </ul>
