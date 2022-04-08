@@ -22,6 +22,7 @@ import UserForm from '../UserForm/UserForm';
 import UserEvents from '../Events/UserEvents';
 import Groups from '../Groups/Groups';
 import './Navbar.css';
+import { Search } from './Search';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   // Profile Menu
@@ -91,6 +92,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         </Link>
       </div>
       <div className="navbar-wrap">
+        <div className="searchbar">
+          <Search />
+        </div>
         <div
           id="basic-button"
           className="nav-links hover-underline-animation"

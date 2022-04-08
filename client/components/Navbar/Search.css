@@ -1,0 +1,12 @@
+.hidden {
+  display: none;
+}
+
+#searchbar {
+  width: 20rem;
+  padding: 5px 0;
+}
+
+.search-results {
+  margin-top: 50rem;
+}
