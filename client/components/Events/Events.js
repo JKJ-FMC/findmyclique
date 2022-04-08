@@ -15,6 +15,7 @@ import MusicNoteIcon from '@mui/icons-material/MusicNote';
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import MoodIcon from '@mui/icons-material/Mood';
 import FestivalIcon from '@mui/icons-material/Festival';
+import NewSearch from '../Navbar/NewSearch';
 
 export default function Events() {
   const events = useSelector((state) => state.events);
@@ -123,6 +124,9 @@ export default function Events() {
         />
         <div className="event-header-img-txt">
           <span className="uppercase">{currCity} Events</span>
+          {/* <div className="testclass">
+            <NewSearch />
+          </div> */}
         </div>
       </div>
       <div className="event-page-buttons">
