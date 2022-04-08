@@ -63,7 +63,7 @@ class Routes extends Component {
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/search" component={Search} />
-            <Route exact path="/newsearch" component={newSearch} />
+            <Route exact path="/newsearch" component={NewSearch} />
             <Route exact path="/trivia" component={Quiz} />
             <Redirect to="/home" />
           </Switch>
