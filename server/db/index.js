@@ -9,6 +9,8 @@ const Group = require('./models/Group');
 const UserToGroup = require('./models/UserToGroup');
 const UserToUser = require('./models/UserToUser');
 const UserToEvent = require('./models/UserToEvent');
+const Question = require('./models/Question');
+const Trivia = require('./models/Trivia');
 
 //events with event categories
 Event.belongsTo(EventCategory);
@@ -54,6 +56,15 @@ UserToGroup.belongsTo(User);
 UserToGroup.belongsTo(Group);
 Group.hasMany(UserToGroup);
 
+//questions to trivia
+Trivia.hasMany(Question);
+Question.belongsTo(Trivia);
+
+//trivia to user to event and event
+Trivia.hasMany(UserToEvent);
+UserToEvent.belongsTo(Trivia);
+Trivia.belongsTo(Event);
+
 module.exports = {
   db,
   models: {
@@ -62,6 +73,8 @@ module.exports = {
     EventCategory,
     Group,
     UserToEvent,
-    UserToGroup
+    UserToGroup,
+    Question,
+    Trivia
   },
 };

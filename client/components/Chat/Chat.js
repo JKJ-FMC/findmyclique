@@ -7,11 +7,12 @@ import { useSelector } from "react-redux";
 
 firebase.initializeApp({
   apiKey: process.env.API_KEY,
-  authDomain: "keen-button-343000.firebaseapp.com",
-  projectId: "keen-button-343000",
-  storageBucket: "keen-button-343000.appspot.com",
-  messagingSenderId: "564886534054",
-  appId: "1:564886534054:web:ff62c463bebe5059194167",
+  authDomain: "find-your-clique.firebaseapp.com",
+  projectId: "find-your-clique",
+  storageBucket: "find-your-clique.appspot.com",
+  messagingSenderId: "332772335668",
+  appId: "1:332772335668:web:e796dd15961e0ba50eea61",
+  measurementId: "G-29CSP1MLPG"
 });
 
 const db = firebase.firestore();
