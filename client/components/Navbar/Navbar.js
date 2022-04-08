@@ -20,6 +20,7 @@ import FestivalIcon from '@mui/icons-material/Festival';
 import UserForm from '../UserForm/UserForm';
 import UserEvents from '../Events/UserEvents';
 import './Navbar.css';
+import { Search } from './Search';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -74,6 +75,9 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         </Link>
       </div>
       <div className="navbar-wrap">
+        <div className="searchbar">
+          <Search />
+        </div>
         <div
           id="basic-button"
           className="nav-links hover-underline-animation"

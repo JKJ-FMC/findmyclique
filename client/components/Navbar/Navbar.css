@@ -101,3 +101,8 @@ a:visited {
   color: #310052;
   padding: 3px;
 }
+
+.searchbar {
+  align-self: center;
+  justify-self: center;
+}
