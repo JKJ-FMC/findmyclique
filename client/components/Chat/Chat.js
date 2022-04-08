@@ -7,12 +7,12 @@ import { useSelector } from 'react-redux';
 
 firebase.initializeApp({
   apiKey: process.env.API_KEY,
-  authDomain: 'find-your-clique.firebaseapp.com',
-  projectId: 'find-your-clique',
-  storageBucket: 'find-your-clique.appspot.com',
-  messagingSenderId: '332772335668',
-  appId: '1:332772335668:web:e796dd15961e0ba50eea61',
-  measurementId: 'G-29CSP1MLPG',
+  authDomain: "find-your-clique.firebaseapp.com",
+  projectId: "find-your-clique",
+  storageBucket: "find-your-clique.appspot.com",
+  messagingSenderId: "332772335668",
+  appId: "1:332772335668:web:e796dd15961e0ba50eea61",
+  measurementId: "G-29CSP1MLPG"
 });
 
 const db = firebase.firestore();
