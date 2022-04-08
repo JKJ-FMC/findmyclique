@@ -13,6 +13,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 import axios from 'axios';
 import { Search } from './components/Navbar/Search';
 import Quiz from './components/Events/Quiz';
+import NewSearch from './components/Navbar/NewSearch';
 
 /**
  * COMPONENT
@@ -62,6 +63,7 @@ class Routes extends Component {
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/search" component={Search} />
+            <Route exact path="/newsearch" component={newSearch} />
             <Route exact path="/trivia" component={Quiz} />
             <Redirect to="/home" />
           </Switch>
@@ -79,6 +81,7 @@ class Routes extends Component {
             <Route exact path="/events/:city" component={Events} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/search" component={Search} />
+            <Route exact path="/newsearch" component={NewSearch} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/chat" component={Chat} />

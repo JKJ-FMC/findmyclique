@@ -11,7 +11,7 @@ const init = async () => {
       await db.sync();
     }
     // start listening (and create a 'server' object representing our server)
-    app.listen(PORT, () => console.log(`Finding your clique on port ${PORT}`));
+    app.listen(PORT, () => console.log(`Finding my clique on port ${PORT}`));
   } catch (ex) {
     console.log(ex);
   }

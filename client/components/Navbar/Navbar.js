@@ -23,6 +23,7 @@ import UserEvents from '../Events/UserEvents';
 import Groups from '../Groups/Groups';
 import './Navbar.css';
 import { Search } from './Search';
+import NewSearch from './NewSearch';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
   // Profile Menu
@@ -93,7 +94,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
       </div>
       <div className="navbar-wrap">
         <div className="searchbar">
-          <Search />
+          <NewSearch />
         </div>
         <div
           id="basic-button"

@@ -122,7 +122,7 @@ export default function Events() {
           className="event-header-img"
         />
         <div className="event-header-img-txt">
-          <span>{currCity.toUpperCase()} EVENTS</span>
+          <span className="uppercase">{currCity} Events</span>
         </div>
       </div>
       <div className="event-page-buttons">

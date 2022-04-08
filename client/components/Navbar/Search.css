@@ -8,5 +8,6 @@
 }
 
 .search-results {
-  margin-top: 50rem;
+  /* margin-top: 50rem; */
+  z-index: 10;
 }
