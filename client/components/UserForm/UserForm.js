@@ -49,7 +49,7 @@ const validationSchema = yup.object({
   imageUrl: yup.string().max(200),
 });
 
-const UserForm = ({ handleCloseModal }) => {
+const UserForm = ({ handleCloseFormModal }) => {
   const id = useSelector((state) => state.auth.id);
   const currUser = useSelector(
     (state) => state.users.find((user) => user.id === id) || {}
@@ -128,20 +128,6 @@ const UserForm = ({ handleCloseModal }) => {
                     <Grid item>
                       <MyTextField label="Bio" name="bio" type="input" />
                     </Grid>
-                    {/* <Grid item>
-                      <MyTextField
-                        label="Date of Birth"
-                        name="dateOfBirth"
-                        type="input"
-                      />
-                    </Grid> */}
-                    {/* <Grid item>
-                      <MyTextField
-                        label="Phone"
-                        name="phoneNumber"
-                        type="input"
-                      />
-                    </Grid> */}
                     <Grid item>
                       <MyTextField
                         label="Photo URL"
@@ -167,15 +153,17 @@ const UserForm = ({ handleCloseModal }) => {
                       <Button
                         disabled={isSubmitting}
                         type="submit"
-                        sx={{ color: 'black' }}
+                        sx={{ color: 'black', width: '50%' }}
                         onClick={() => updateToast()}
+                        variant="outlined"
                       >
                         SUBMIT
                       </Button>
                       <Button
                         type="button"
-                        onClick={() => handleCloseModal()}
-                        sx={{ color: 'black' }}
+                        onClick={() => handleCloseFormModal()}
+                        sx={{ color: 'black', width: '50%' }}
+                        variant="outlined"
                       >
                         CANCEL
                       </Button>
