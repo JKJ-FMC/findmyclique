@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import firebase from "firebase";
-import "firebase/firestore";
-import "./Chat.css";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import firebase from 'firebase';
+import 'firebase/firestore';
+import './Chat.css';
+import { useSelector } from 'react-redux';
 // require("dotenv").config();
 
 firebase.initializeApp({
@@ -22,15 +22,15 @@ const auth = firebase.auth();
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState('');
 
   const name = useSelector(
-    (state) => state.auth.firstName + " " + state.auth.lastName
+    (state) => state.auth.firstName + ' ' + state.auth.lastName
   );
   console.log(name);
 
   const sendMessage = async (messge) => {
-    await db.collection("chat_messages").add({
+    await db.collection('chat_messages').add({
       text: messge,
       uid: auth.currentUser.uid,
       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
@@ -41,12 +41,12 @@ export default function Chat() {
     //   state: "CA",
     //   country: "USA",
     // });
-    setMsg("");
+    setMsg('');
   };
 
   useEffect(() => {
-    db.collection("chat_messages")
-      .orderBy("createdAt")
+    db.collection('chat_messages')
+      .orderBy('createdAt')
       .limit(50)
       .onSnapshot((snapshot) => {
         setMessages(snapshot.docs.map((doc) => doc.data()));
@@ -60,7 +60,7 @@ export default function Chat() {
           <div
             key={idx}
             className={
-              message.uid === auth.currentUser.uid ? "sent" : "received"
+              message.uid === auth.currentUser.uid ? 'sent' : 'received'
             }
           >
             <h3>{message.name}</h3>
