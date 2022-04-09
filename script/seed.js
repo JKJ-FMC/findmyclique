@@ -18,6 +18,7 @@ const axios = require('axios');
  */
 
 let today = new Date();
+today.setDate(today.getDate() + 1);
 const dd = String(today.getDate()).padStart(2, '0');
 const mm = String(today.getMonth() + 1).padStart(2, '0');
 const year = today.getFullYear();
@@ -25,7 +26,7 @@ today = year + '-' + mm + '-' + dd;
 console.log('CURRENT DATE', today);
 
 let yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
+// yesterday.setDate(yesterday.getDate() - 1);
 const dd1 = String(yesterday.getDate()).padStart(2, '0');
 const mm1 = String(yesterday.getMonth() + 1).padStart(2, '0');
 const year1 = yesterday.getFullYear();
@@ -207,9 +208,12 @@ async function seed() {
     name: 'Tyler, the Creator',
     price: 95,
     date: today,
-    imageUrl: 'https://dk2dv4ezy246u.cloudfront.net/widgets/sSnF4yNXgPE_large.jpg',
-    largeImageUrl: 'https://media.pitchfork.com/photos/60df879d316238f6226d2605/1:1/w_900,h_900,c_limit/TylerTheCreator_GettyImages-1325814253.jpg',
-    description: "One of the most fascinating artistic evolutions since the late 2000s has been that of Tyler, The Creator. The rapper and producer surfaced as a founding member of Odd Future, an outlandish alternative rap crew that gradually permeated the mainstream as it begat a multitude of related projects.",
+    imageUrl:
+      'https://dk2dv4ezy246u.cloudfront.net/widgets/sSnF4yNXgPE_large.jpg',
+    largeImageUrl:
+      'https://media.pitchfork.com/photos/60df879d316238f6226d2605/1:1/w_900,h_900,c_limit/TylerTheCreator_GettyImages-1325814253.jpg',
+    description:
+      'One of the most fascinating artistic evolutions since the late 2000s has been that of Tyler, The Creator. The rapper and producer surfaced as a founding member of Odd Future, an outlandish alternative rap crew that gradually permeated the mainstream as it begat a multitude of related projects.',
     location: 'New York City, NY',
     startTime: '7:00 pm',
     isSoldOut: false,
@@ -217,7 +221,8 @@ async function seed() {
     venueAddress: '4 Pennsylvania Plaza, New York, NY 10001',
     latitude: '40.7505',
     longitude: '-73.9934',
-    ticketUrl: 'https://www.stubhub.com/tyler-the-creator-seattle-tickets-4-8-2022/event/104922534/',
+    ticketUrl:
+      'https://www.stubhub.com/tyler-the-creator-seattle-tickets-4-8-2022/event/104922534/',
     category: 'concert',
     city: 'nyc',
   });
@@ -228,11 +233,11 @@ async function seed() {
       likedEventId: event1.id,
       likedUserId: currUser.id,
     });
-  })
+  });
 
   //event 1 group
   const event1Group = await Group.create({
-    eventId: event1.id
+    eventId: event1.id,
   });
 
   await Promise.all(
@@ -244,18 +249,16 @@ async function seed() {
     })
   );
 
-
   //test event with likes (no groups unassigned yet)
-    //test event likes
-    // await Promise.all(
-    //   [jennifer, kenny, jordan, saad].map((currUser) => {
-    //     UserToEvent.create({
-    //       likedEventId: event1.id,
-    //       likedUserId: currUser.id,
-    //     });
-    //   })
-    // );
-
+  //test event likes
+  // await Promise.all(
+  //   [jennifer, kenny, jordan, saad].map((currUser) => {
+  //     UserToEvent.create({
+  //       likedEventId: event1.id,
+  //       likedUserId: currUser.id,
+  //     });
+  //   })
+  // );
 
   //events
   const eventbrite = await seedEvents();
