@@ -45,7 +45,7 @@ export default function SingleEvent() {
 
   console.log('liked users', likedUsers);
 
-  if (!group) return;
+  // if (!group) return null;
 
   return (
     <div className="single-evnt">
