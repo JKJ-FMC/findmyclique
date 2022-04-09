@@ -8,6 +8,7 @@ import likedEvents from './likedEvents';
 import likedUsers from './likedUsers';
 import users from './users';
 import groups from './groups';
+import userToGroup from './userGroups';
 
 const reducer = combineReducers({
   events,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   likedUsers,
   users,
   auth,
-  groups
+  groups,
+  userToGroup,
 });
 
 const middleware = composeWithDevTools(
@@ -30,3 +32,4 @@ export * from './events';
 export * from './likedEvents';
 export * from './users';
 export * from './groups';
+export * from './userGroups';

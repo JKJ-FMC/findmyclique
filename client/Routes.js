@@ -5,7 +5,13 @@ import { Login, Signup } from './components/Login_Signup/Login_Page';
 import Home from './components/Home';
 import Events from '../client/components/Events/Events';
 import { me } from './store';
-import { getEvents, getLikedEvents, getUsers } from './store';
+import {
+  getEvents,
+  getLikedEvents,
+  getUsers,
+  getGroups,
+  getUserToGroup,
+} from './store';
 import SingleEvent from './components/Events/SingleEvent';
 import UserEvents from './components/Events/UserEvents';
 import Chat from './components/Chat/Chat';
@@ -13,10 +19,8 @@ import { ToastContainer, Slide } from 'react-toastify';
 import axios from 'axios';
 import { Search } from './components/Navbar/Search';
 import Quiz from './components/Events/Quiz';
+import SingleGroup from './components/Groups/SingleGroup';
 
-/**
- * COMPONENT
- */
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
@@ -59,11 +63,12 @@ class Routes extends Component {
             />
             <Route exact path="/events/:city" component={Events} />
             <Route exact path="/myevents/:id" component={UserEvents} />
+            <Route exact path="/groups/:eventId" component={SingleGroup} />
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/trivia" component={Quiz} />
-            <Redirect to="/home" />
+            {/* <Redirect to="/home" /> */}
           </Switch>
         ) : (
           <Switch>
@@ -83,7 +88,7 @@ class Routes extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/" component={Login} />
-            <Redirect to="/home" />
+            {/* <Redirect to="/home" /> */}
             {/* <Redirect to="/login" /> */}
           </Switch>
         )}
@@ -122,6 +127,8 @@ const mapDispatch = (dispatch) => {
       dispatch(me());
       dispatch(getEvents());
       dispatch(getUsers());
+      dispatch(getGroups());
+      dispatch(getUserToGroup());
     },
     getLikes() {
       dispatch(getLikedEvents());

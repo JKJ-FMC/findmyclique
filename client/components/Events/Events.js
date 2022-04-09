@@ -115,7 +115,7 @@ export default function Events() {
   // console.log('EVENTS', events);
 
   return (
-    <div>
+    <div className="event-page-container">
       <div className="event-page-header">
         <img
           src={currCity in cityPhotos ? cityPhotos[currCity] : ''}
