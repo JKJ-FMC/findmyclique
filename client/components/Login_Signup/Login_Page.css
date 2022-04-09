@@ -55,6 +55,7 @@
   border-radius: 20px;
   border: none;
   font-size: 1.1rem;
+  cursor: pointer;
 }
 
 .email {
@@ -62,7 +63,7 @@
 }
 
 .right-side {
-  background: url("https://i.ibb.co/G2mgzSY/3495739.jpg");
+  background: url('https://i.ibb.co/G2mgzSY/3495739.jpg');
   width: 50vw;
   height: 90vh;
   border-top-right-radius: 10px;
