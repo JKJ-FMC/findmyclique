@@ -51,10 +51,10 @@ export default function SingleEvent() {
   return (
     <div className="single-evnt">
       <div
-        class="single-evnt-bg"
+        className="single-evnt-bg"
         style={{ backgroundImage: `url(${currEvent.largeImageUrl})` }}
       >
-        <div class="bg-blur">
+        <div className="bg-blur">
           <Card
             className="single-evnt-card"
             sx={{ width: 950, height: 1200, maxWidth: 950, maxHeight: 1400 }}
