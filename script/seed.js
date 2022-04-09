@@ -202,21 +202,60 @@ async function seed() {
     )
   );
 
-  //test event
+  //test event with groups
   const event1 = await Event.create({
-    name: 'EVENT TEST 1',
-    date: '2022-03-30',
+    name: 'Tyler, the Creator',
+    price: 95,
+    date: today,
+    imageUrl: 'https://dk2dv4ezy246u.cloudfront.net/widgets/sSnF4yNXgPE_large.jpg',
+    largeImageUrl: 'https://media.pitchfork.com/photos/60df879d316238f6226d2605/1:1/w_900,h_900,c_limit/TylerTheCreator_GettyImages-1325814253.jpg',
+    description: "One of the most fascinating artistic evolutions since the late 2000s has been that of Tyler, The Creator. The rapper and producer surfaced as a founding member of Odd Future, an outlandish alternative rap crew that gradually permeated the mainstream as it begat a multitude of related projects.",
+    location: 'New York City, NY',
+    startTime: '7:00 pm',
+    isSoldOut: false,
+    venueName: 'Madison Square Garden',
+    venueAddress: '4 Pennsylvania Plaza, New York, NY 10001',
+    latitude: '40.7505',
+    longitude: '-73.9934',
+    ticketUrl: 'https://www.stubhub.com/tyler-the-creator-seattle-tickets-4-8-2022/event/104922534/',
+    category: 'concert',
+    city: 'nyc',
   });
 
-  //test event likes
-  // await Promise.all(
-  //   [jennifer, kenny, jordan, saad].map((currUser) => {
-  //     UserToEvent.create({
-  //       likedEventId: event1.id,
-  //       likedUserId: currUser.id,
-  //     });
-  //   })
-  // );
+  //event 1 likes
+  [jennifer, kenny, jordan].map((currUser) => {
+    UserToEvent.create({
+      likedEventId: event1.id,
+      likedUserId: currUser.id,
+    });
+  })
+
+  //event 1 group
+  const event1Group = await Group.create({
+    eventId: event1.id
+  });
+
+  await Promise.all(
+    [jennifer, kenny, jordan].map((currUser) => {
+      UserToGroup.create({
+        groupId: event1Group.id,
+        userId: currUser.id,
+      });
+    })
+  );
+
+
+  //test event with likes (no groups unassigned yet)
+    //test event likes
+    // await Promise.all(
+    //   [jennifer, kenny, jordan, saad].map((currUser) => {
+    //     UserToEvent.create({
+    //       likedEventId: event1.id,
+    //       likedUserId: currUser.id,
+    //     });
+    //   })
+    // );
+
 
   //events
   // const eventbrite = await seedEvents();
@@ -227,7 +266,7 @@ async function seed() {
   const allEvents = await Event.findAll();
 
   //seed questions for each event
-  await seedQuestions(allEvents)
+  // await seedQuestions(allEvents)
 
   await seedLikes(allEvents);
 
