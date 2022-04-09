@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { authenticate } from "../../store";
-import "./Login_Page.css";
-import firebase from "firebase/app";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { authenticate } from '../../store';
+import './Login_Page.css';
+import firebase from 'firebase/app';
 
 /**
  * COMPONENT
  */
 const AuthForm = (props) => {
   const { name, displayName, handleSubmit, error } = props;
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
 
   const siginIn = (email, password) => {
     firebase
@@ -34,8 +34,7 @@ const AuthForm = (props) => {
         <form
           onSubmit={handleSubmit}
           name={name}
-          className="login-form-container"
-          className="login-form"
+          className="login-form-container login-form"
         >
           <div className="login_form_element">
             <h1>Sign in</h1>
@@ -86,16 +85,16 @@ const AuthForm = (props) => {
  */
 const mapLogin = (state) => {
   return {
-    name: "login",
-    displayName: "Login",
+    name: 'login',
+    displayName: 'Login',
     error: state.auth.error,
   };
 };
 
 const mapSignup = (state) => {
   return {
-    name: "signup",
-    displayName: "Sign Up",
+    name: 'signup',
+    displayName: 'Sign Up',
     error: state.auth.error,
   };
 };
