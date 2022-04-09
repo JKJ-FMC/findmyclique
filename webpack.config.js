@@ -1,12 +1,20 @@
 const Dotenv = require('dotenv-webpack');
+const { webpack } = require('webpack');
+const path = require('path');
 
 module.exports = {
+  target: 'web',
   entry: ['./client/index.js'],
   output: {
     path: __dirname,
     filename: './public/bundle.js',
   },
   devtool: 'source-map',
+  devServer: {
+    port: 8080,
+    hot: true,
+  },
+  mode: 'development',
   module: {
     rules: [
       {
@@ -43,6 +51,21 @@ module.exports = {
             loader: 'sass-loader',
           },
         ],
+      },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'svg-url-loader',
+      //       options: {
+      //         limit: 10000,
+      //       },
+      //     },
+      //   ],
+      // },
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
       },
       {
         test: /\.svg$/,

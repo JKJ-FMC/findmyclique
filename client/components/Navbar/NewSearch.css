@@ -1,0 +1,22 @@
+.searchResult {
+  max-height: 8rem;
+  display: flex;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.searchResult img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.resultDetails {
+  margin-left: 1rem;
+}

@@ -8,6 +8,7 @@ const faker = require('faker');
 const seedEvents = require('./seedEvents');
 const seedLikes = require('./seedLikes');
 const seedSeatGeek = require('./seedSeatGeek');
+const seedQuestions = require('./seedQuestions');
 const axios = require('axios');
 
 /**
@@ -41,7 +42,7 @@ const randomGroup = async (events) => {
       //if today is the day before event
       if (currEvent.date === yesterday) {
         let eventId = currEvent.id;
-        console.log(eventId, currEvent.name);
+        // console.log(eventId, currEvent.name);
         const evLikes = await UserToEvent.findAll({
           where: {
             likedEventId: eventId,
@@ -49,7 +50,7 @@ const randomGroup = async (events) => {
         });
 
         const numOfPeople = evLikes.length;
-        console.log('total num of people', numOfPeople);
+        // console.log('total num of people', numOfPeople);
 
         //only run if more than 3 or more people have liked event
         if (numOfPeople >= 3) {
@@ -224,6 +225,9 @@ async function seed() {
   // console.log('seatgeek: ', seatgeak.length);
 
   const allEvents = await Event.findAll();
+
+  //seed questions for each event
+  await seedQuestions(allEvents)
 
   await seedLikes(allEvents);
 

@@ -75,3 +75,7 @@ a:link {
   justify-content: center;
   padding-bottom: 15px;
 }
+
+.testclass {
+  width: 100vw;
+}
