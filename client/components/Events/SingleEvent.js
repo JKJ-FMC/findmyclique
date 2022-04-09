@@ -23,6 +23,7 @@ export default function SingleEvent() {
   const likedUsers = useSelector((state) =>
     state.likedEvents.filter((ev) => ev.likedEventId === id)
   );
+  console.log('likedUsers!!!!', likedUsers);
 
   const userId = useSelector((state) => state.auth.id);
 
@@ -30,7 +31,7 @@ export default function SingleEvent() {
 
   useEffect(() => {}, []);
   const group = useSelector((state) => state.groups.users || []);
-  console.log('groups -----> ', group);
+  // console.log('groups -----> ', group);
 
   // console.log('groups -----> ', group);
 
@@ -78,10 +79,10 @@ export default function SingleEvent() {
 
               <div className="evnt-groups">
                 <h2>Your potential group members</h2>
-                <AvatarGroup total={group.length}>
-                  {group.map((user, i) => {
+                <AvatarGroup total={likedUsers.length}>
+                  {likedUsers.map((user, i) => {
                     // const currUser = user.user;
-                    return <Avatar src={user.imageUrl} />;
+                    return <Avatar key={i} src={user.imageUrl} />;
                   })}
                 </AvatarGroup>
               </div>
