@@ -47,6 +47,11 @@ export default function SingleEvent() {
     dispatch(getUserGroup(id, userId));
   }, []);
 
+  console.log('liked users', likedUsers);
+
+  if (!group) return;
+
+
   return (
     <div className="single-evnt">
       <div
@@ -66,7 +71,7 @@ export default function SingleEvent() {
             />
             <CardContent>
               <div>
-                <h1>{currEvent.name}</h1>
+                <h1 className="single-event-title">{currEvent.name}</h1>
                 <div>{currEvent.category}</div>
                 <div>{currEvent.description}</div>
                 <div>
@@ -95,7 +100,7 @@ export default function SingleEvent() {
                   </AvatarGroup>
                 </div>
               )}
-
+              
               {currEvent.latitude && (
                 <div id="map">
                   <EventMap
@@ -104,6 +109,7 @@ export default function SingleEvent() {
                   />
                 </div>
               )}
+
             </CardContent>
           </Card>
         </div>

@@ -291,7 +291,7 @@ async function seed() {
   );
 
   //events
-  const eventbrite = await seedEvents();
+  // const eventbrite = await seedEvents();
   // console.log('eventbrite: ', eventbrite.length);
   const seatgeek = await seedSeatGeek();
   // console.log('seatgeek: ', seatgeak.length);
@@ -299,12 +299,12 @@ async function seed() {
   const allEvents = await Event.findAll();
 
   //seed questions for each event
-  // await seedQuestions(allEvents)
+
+  await seedQuestions(allEvents);
 
   await seedLikes(allEvents);
 
   // const allEvents = await Event.findAll();
-  // await seedLikes(allEvents);
 
   //console.log(seatGeek)
   await randomGroup(allEvents);

@@ -6,10 +6,10 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { likeEvent, unlikeEvent } from '../../store';
-import './FeaturedEvent.css';
 import dateFormat from 'dateformat';
 import { toast } from 'react-toastify';
 import { injectStyle } from 'react-toastify/dist/inject-style';
+import './FeaturedEvent.css';
 
 export default function FeaturedEvent({ event }) {
   const signUpToLike = () =>
@@ -83,7 +83,7 @@ export default function FeaturedEvent({ event }) {
         </div>
         <div className="fEvent-cover-icon">
           <Link to={`/events/${event.city}/${event.id}`}>
-            <VisibilityIcon fontSize="large" style={{ color: '#310052' }} />
+            <VisibilityIcon fontSize="large" style={{ color: '#000000' }} />
           </Link>
         </div>
       </div>

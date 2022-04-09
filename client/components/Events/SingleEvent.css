@@ -40,3 +40,7 @@
 .single-evnt-card {
   /* z-index: 7; */
 }
+
+.single-event-title {
+  text-transform: capitalize;
+}

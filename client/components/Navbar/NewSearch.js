@@ -56,7 +56,7 @@ function NewSearch() {
   return (
     <div className="newSearch">
       <header>
-        <div style={{ width: 450 }}>
+        <div style={{ width: 350 }}>
           <ReactSearchAutocomplete
             items={items}
             placeholder="Search by Name, Venue, Location, and More!"
@@ -66,7 +66,7 @@ function NewSearch() {
             onFocus={handleOnFocus}
             autoFocus
             formatResult={formatResult}
-            styling={{ zIndex: 1001 }}
+            styling={{ zIndex: 1001, fontSize: '13px' }}
           />
         </div>
       </header>

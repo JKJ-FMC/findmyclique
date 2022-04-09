@@ -98,8 +98,11 @@ class Routes extends Component {
             <Route exact path="/trivia" component={Quiz} />
 
             <Route exact path="/" component={Login} />
+
+
             {<Redirect to="/home" />}
             {/* <Redirect to="/login" /> */}
+
           </Switch>
         )}
         <ToastContainer
