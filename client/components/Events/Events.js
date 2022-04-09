@@ -98,7 +98,7 @@ export default function Events() {
     );
   }
 
-  console.log('CURR EVENTS', currentEvents);
+  // console.log('CURR EVENTS', currentEvents);
 
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 12;
