@@ -35,6 +35,7 @@ const Home = () => {
         <div className="home-img-txt">FIND MY CLIQUE</div>
       </div>
       <h1
+        className="home-title"
         style={{
           textAlign: 'center',
           // backgroundColor: 'black',

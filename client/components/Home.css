@@ -11,6 +11,11 @@
   color: white;
 }
 
+.home-title {
+  margin-top: 15px;
+  font-family: Roboto;
+}
+
 img.home-bg {
   /* position: fixed; */
   top: 0;

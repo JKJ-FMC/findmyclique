@@ -23,10 +23,9 @@ const SingleGroup = () => {
 
   const userId = useSelector((state) => state.auth.id) || '';
 
-  const currGroup =
-    useSelector((state) =>
-      state.groups.find((group) => group.eventId === eventId)
-    ) || '';
+  const groups = useSelector((state) => state.groups);
+
+  const currGroup = groups.find((group) => group.eventId === eventId) || '';
 
   const currGroupId = currGroup.id;
 
