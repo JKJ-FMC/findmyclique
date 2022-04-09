@@ -95,6 +95,7 @@ class Routes extends Component {
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/chat" component={Chat} />
             <Route exact path="/chatwindow" component={ChatWindow} />
+            <Route exact path="/trivia" component={Quiz} />
 
             <Route exact path="/" component={Login} />
             {<Redirect to="/home" />}
