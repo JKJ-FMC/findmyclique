@@ -178,24 +178,24 @@ async function seed() {
   });
 
   // Creating Users
-  await seedUsers();
-  const users = await Promise.all(
-    Array(100)
-      .fill()
-      .map((ele) =>
-        User.create({
-          firstName: faker.name.firstName(),
-          lastName: faker.name.lastName(),
-          dateOfBirth: faker.date.past(),
-          imageUrl: faker.image.people(),
-          job: faker.name.jobTitle(),
-          bio: `I love ${faker.commerce.productAdjective()} ${faker.animal.fish()}`,
-          email: faker.internet.email(),
-          password: '1234567',
-          phoneNumber: faker.phone.phoneNumber(),
-        })
-      )
-  );
+  const users = await seedUsers();
+  // const users = await Promise.all(
+  //   Array(100)
+  //     .fill()
+  //     .map((ele) =>
+  //       User.create({
+  //         firstName: faker.name.firstName(),
+  //         lastName: faker.name.lastName(),
+  //         dateOfBirth: faker.date.past(),
+  //         imageUrl: faker.image.people(),
+  //         job: faker.name.jobTitle(),
+  //         bio: `I love ${faker.commerce.productAdjective()} ${faker.animal.fish()}`,
+  //         email: faker.internet.email(),
+  //         password: '1234567',
+  //         phoneNumber: faker.phone.phoneNumber(),
+  //       })
+  //     )
+  // );
 
   //event categories
   await Promise.all(
@@ -295,14 +295,8 @@ async function seed() {
   //console.log(seatGeek)
   await randomGroup(allEvents);
 
-  console.log(`seeded ${users.length + 1} users`);
   // console.log(`seeded ${events.length} events`);
   console.log(`seeded successfully`);
-  return {
-    users: {
-      cody: users[0],
-    },
-  };
 }
 
 /*
