@@ -25,7 +25,6 @@ import SingleGroup from './components/Groups/SingleGroup';
 import NewSearch from './components/Navbar/NewSearch';
 import ChatWindow from './components/Chat/ChatWindow';
 
-
 class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
@@ -75,7 +74,7 @@ class Routes extends Component {
             <Route exact path="/search" component={Search} />
             <Route exact path="/newsearch" component={NewSearch} />
             <Route exact path="/trivia" component={Quiz} />
-            {/* <Redirect to="/home" /> */}
+            <Redirect to="/home" />
           </Switch>
         ) : (
           <Switch>
@@ -98,7 +97,7 @@ class Routes extends Component {
             <Route exact path="/chatwindow" component={ChatWindow} />
 
             <Route exact path="/" component={Login} />
-            {/* <Redirect to="/home" /> */}
+            {<Redirect to="/home" />}
             {/* <Redirect to="/login" /> */}
           </Switch>
         )}
