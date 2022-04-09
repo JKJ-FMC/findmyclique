@@ -149,6 +149,7 @@ async function seed() {
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U02HB2E2YEQ-8ee79484eba7-512',
+    bio: 'Rock star turned rock CSStar',
   });
 
   const jordan = await User.create({
@@ -158,6 +159,7 @@ async function seed() {
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U01UD247JCW-143cc32d8e1e-512',
+    bio: 'Bug',
   });
 
   const jennifer = await User.create({
@@ -167,6 +169,7 @@ async function seed() {
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U01J88VFDN2-06b6fdc48021-512',
+    bio: 'Soy Sauce Salmon lover turned back-end brainiac',
   });
 
   const saad = await User.create({
@@ -176,6 +179,7 @@ async function seed() {
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U02H5SC0S0M-08b077f9ea60-512',
+    bio: '',
   });
 
   // Creating Users
@@ -265,9 +269,12 @@ async function seed() {
     name: 'John Mulaney',
     price: 95,
     date: today,
-    imageUrl: 'https://pyxis.nymag.com/v1/imgs/4f0/db3/d4e7ce771f77a4d3e4db7120a1f549e2fa-18-good-one-podcast-john-mulaney-3.rsquare.w700.jpg',
-    largeImageUrl: 'https://news-service.s3.amazonaws.com/comedy-trump-3b480b06-fcf5-11ea-9ceb-061d646d9c67.jpg',
-    description: "John Mulaney: Kid Gorgeous at Radio City is a 2018 stand-up comedy film written by and starring John Mulaney. The special was recorded live in February 2018 at the Radio City Music Hall in New York City,[1] and released by Netflix on May 1, 2018.[2]. Similarly to Mulaney's previous show, The Comeback Kid, Kid Gorgeous is a visually simplistic stand-up routine with a major emphasis upon observational humor.[3] The majority of jokes are centered upon Mulaney's marriage to Victorian lampshade designer Annamarie Tendler, adolescence, celebrity, politics and anxieties associated with contemporary American life.",
+    imageUrl:
+      'https://pyxis.nymag.com/v1/imgs/4f0/db3/d4e7ce771f77a4d3e4db7120a1f549e2fa-18-good-one-podcast-john-mulaney-3.rsquare.w700.jpg',
+    largeImageUrl:
+      'https://news-service.s3.amazonaws.com/comedy-trump-3b480b06-fcf5-11ea-9ceb-061d646d9c67.jpg',
+    description:
+      "John Mulaney: Kid Gorgeous at Radio City is a 2018 stand-up comedy film written by and starring John Mulaney. The special was recorded live in February 2018 at the Radio City Music Hall in New York City,[1] and released by Netflix on May 1, 2018.[2]. Similarly to Mulaney's previous show, The Comeback Kid, Kid Gorgeous is a visually simplistic stand-up routine with a major emphasis upon observational humor.[3] The majority of jokes are centered upon Mulaney's marriage to Victorian lampshade designer Annamarie Tendler, adolescence, celebrity, politics and anxieties associated with contemporary American life.",
     location: 'New York City, NY',
     startTime: '7:00 pm',
     isSoldOut: false,
@@ -275,7 +282,8 @@ async function seed() {
     venueAddress: '4 Pennsylvania Plaza, New York, NY 10001',
     latitude: '40.7600',
     longitude: '-73.9800',
-    ticketUrl: 'https://www.stubhub.com/john-mulaney-new-haven-tickets-6-8-2022/event/105255096/',
+    ticketUrl:
+      'https://www.stubhub.com/john-mulaney-new-haven-tickets-6-8-2022/event/105255096/',
     category: 'comedy',
     city: 'nyc',
   });
