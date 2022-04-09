@@ -9,7 +9,7 @@ const seedLikes = async () => {
 
   const users = await User.findAll({});
   for (ev of events) {
-    const numLikes = Math.floor(Math.random() * 4);
+    const numLikes = Math.floor(Math.random() * 25);
     const randInt = Math.floor(Math.random() * (users.length - numLikes));
     await Promise.all(
       users.slice(randInt, randInt + numLikes).map(async (user) => {
