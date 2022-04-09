@@ -219,7 +219,7 @@ async function seed() {
   // );
 
   //events
-  // const eventbrite = await seedEvents();
+  const eventbrite = await seedEvents();
   // console.log('eventbrite: ', eventbrite.length);
   const seatgeek = await seedSeatGeek();
   // console.log('seatgeek: ', seatgeak.length);

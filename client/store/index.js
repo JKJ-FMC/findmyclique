@@ -8,7 +8,11 @@ import likedEvents from './likedEvents';
 import likedUsers from './likedUsers';
 import users from './users';
 import groups from './groups';
+
+import userToGroup from './userGroups';
+
 import trivia from './trivia';
+
 
 const reducer = combineReducers({
   events,
@@ -17,6 +21,7 @@ const reducer = combineReducers({
   users,
   auth,
   groups,
+  userToGroup,
   trivia
 });
 
@@ -32,4 +37,6 @@ export * from './events';
 export * from './likedEvents';
 export * from './users';
 export * from './groups';
+export * from './userGroups';
 export * from './trivia';
+
