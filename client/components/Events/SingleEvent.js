@@ -34,7 +34,8 @@ export default function SingleEvent() {
   const allGroups = useSelector((state) => state.groups);
 
   useEffect(() => {
-    setGroup(allGroups.filter((group) => group.eventId === id)[0]);
+    if (allGroups.length)
+      setGroup(allGroups.filter((group) => group.eventId === id)[0]);
   }, [allGroups.length]);
 
   const dispatch = useDispatch();
@@ -45,7 +46,6 @@ export default function SingleEvent() {
   console.log('liked users', likedUsers);
 
   if (!group) return;
-
 
   return (
     <div className="single-evnt">
@@ -95,7 +95,7 @@ export default function SingleEvent() {
                   </AvatarGroup>
                 </div>
               )}
-              
+
               {currEvent.latitude && (
                 <div id="map">
                   <EventMap
@@ -104,7 +104,6 @@ export default function SingleEvent() {
                   />
                 </div>
               )}
-
             </CardContent>
           </Card>
         </div>
