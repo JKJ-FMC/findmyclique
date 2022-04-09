@@ -54,6 +54,7 @@
     "pg": "^8.5.1",
     "pretty": "^2.0.0",
     "puppeteer": "^13.5.1",
+    "react-chat-window": "^1.2.1",
     "react-instantsearch": "^6.23.1",
     "react-instantsearch-dom": "^6.23.1",
     "react-reveal": "^1.2.2",
@@ -95,6 +96,7 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.3.0",
     "supertest": "^4.0.2",
+    "svg-url-loader": "^7.1.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.15.0",
     "webpack-cli": "^4.3.1"
