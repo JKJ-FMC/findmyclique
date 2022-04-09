@@ -32,7 +32,7 @@ export default function SingleEvent() {
 
   const currGroup =
     useSelector((state) =>
-      state.groups.find((group) => group.eventId === id)
+      state.groups && state.groups.find((group) => group.eventId === id)
     ) || [];
 
   useEffect(() => {
