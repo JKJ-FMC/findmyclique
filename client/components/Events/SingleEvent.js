@@ -31,16 +31,11 @@ export default function SingleEvent() {
 
   const [group, setGroup] = useState([]);
 
-  const currGroup =
-    useSelector(
-      (state) =>
-        state.groups && state.groups.filter((group) => group.eventId === id)
-    ) || [];
+  const allGroups = useSelector((state) => state.groups);
 
   useEffect(() => {
-    console.log('NEW GROUP', currGroup);
-    setGroup(currGroup);
-  }, [currGroup.length]);
+    setGroup(allGroups.filter((group) => group.eventId === id)[0]);
+  }, [allGroups.length]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -79,7 +74,7 @@ export default function SingleEvent() {
                 </div>
               </div>
               {/* </CardContent> */}
-              {group.users ? (
+              {group && group.users ? (
                 <div className="evnt-groups">
                   <h2>Your group members</h2>
                   <AvatarGroup total={group.users.length}>
