@@ -31,6 +31,8 @@ User.hasMany(UserToEvent);
 UserToEvent.belongsTo(User, { foreignKey: 'likedUserId' });
 Event.hasMany(UserToEvent);
 UserToEvent.belongsTo(Event, { foreignKey: 'likedEventId' });
+// Event.belongsToMany(User, { through: UserToEvent, foreignKey: 'likedEventId' });
+// User.belongsToMany(Event, { through: UserToEvent, foreignKey: 'likedUserId' });
 
 //event to user to user
 User.belongsToMany(User, {
