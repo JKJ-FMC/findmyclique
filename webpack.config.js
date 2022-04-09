@@ -3,17 +3,17 @@ const { webpack } = require('webpack');
 const path = require('path');
 
 module.exports = {
-  target: 'web',
+  // target: 'web',
   entry: ['./client/index.js'],
   output: {
     path: __dirname,
     filename: './public/bundle.js',
   },
   devtool: 'source-map',
-  devServer: {
-    port: 8080,
-    hot: true,
-  },
+  // devServer: {
+  //   port: 8080,
+  //   hot: true,
+  // },
   mode: 'development',
   module: {
     rules: [
@@ -68,20 +68,33 @@ module.exports = {
         loader: 'file-loader',
       },
       {
-        test: /\.svg$/,
+        test: /\.(svg|gif)$/,
         use: [
           {
-            loader: 'babel-loader',
-          },
-          {
-            loader: 'react-svg-loader',
+            loader: 'file-loader',
             options: {
-              jsx: true,
+              name: 'images/[hash]-[name].[ext]',
             },
           },
         ],
       },
+      // {
+      //   test: /\.svg$/,
+      //   use: [
+      //     {
+      //       loader: 'babel-loader',
+      //     },
+      //     {
+      //       loader: 'react-svg-loader',
+      //       options: {
+      //         jsx: true,
+      //       },
+      //     },
+      //   ],
+      // },
     ],
   },
   plugins: [new Dotenv()],
 };
+
+//donezo
