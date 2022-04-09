@@ -6,8 +6,10 @@
 }
 
 .searchResult img {
-  width: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .capitalize {
@@ -18,5 +20,5 @@
 }
 
 .resultDetails {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
 }

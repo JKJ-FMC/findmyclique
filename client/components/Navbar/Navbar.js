@@ -3,18 +3,7 @@ import { connect, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logout } from '../../store';
 import Logo from '../../../public/fmc_nav.png';
-import {
-  MenuItem,
-  Avatar,
-  Menu,
-  Button,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from '@mui/material';
+import { MenuItem, Avatar, Menu, Dialog } from '@mui/material';
 import Logout from '@mui/icons-material/Logout';
 import FestivalIcon from '@mui/icons-material/Festival';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -26,6 +15,8 @@ import { Search } from './Search';
 import NewSearch from './NewSearch';
 
 const Navbar = ({ handleClick, isLoggedIn }) => {
+  const events = useSelector((state) => state.events);
+
   // Profile Menu
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -93,9 +84,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
         </Link>
       </div>
       <div className="navbar-wrap">
-        <div className="searchbar">
-          <NewSearch />
-        </div>
         <div
           id="basic-button"
           className="nav-links hover-underline-animation"
@@ -185,7 +173,6 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   />
                   <span onClick={handleOpenEventsModal}>My Events</span>
                 </MenuItem>
-
                 <MenuItem className="menu-item">
                   <GroupsIcon
                     className="menu-icon"
@@ -193,15 +180,13 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   />
                   <span onClick={handleOpenGroupsModal}>My Groups</span>
                 </MenuItem>
-
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <Avatar
                     className="menu-icon"
-                    sx={{ width: 26, height: 26, bgcolor: '#310052' }}
+                    sx={{ width: 26, height: 26, bgcolor: '#000000' }}
                   />
                   <span onClick={handleOpenFormModal}>Edit Profile</span>
                 </MenuItem>
-
                 <MenuItem className="menu-item" onClick={handleClose}>
                   <Logout
                     className="menu-icon"
@@ -210,7 +195,7 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
                   <Link
                     to="/"
                     onClick={handleClick}
-                    style={{ color: '#310052', textDecoration: 'none' }}
+                    style={{ color: '#000000', textDecoration: 'none' }}
                   >
                     <span>Logout</span>
                   </Link>
@@ -229,11 +214,17 @@ const Navbar = ({ handleClick, isLoggedIn }) => {
             </div>
             <div>
               <Dialog open={openGroupsModal} onClose={handleCloseGroupsModal}>
-                <Groups handleCloseGroupsModal={handleCloseGroupsModal} />
+                <Groups
+                  handleCloseGroupsModal={handleCloseGroupsModal}
+                  events={events}
+                />
               </Dialog>
             </div>
           </div>
         )}
+        <div className="searchbar">
+          <NewSearch />
+        </div>
       </div>
     </div>
   );

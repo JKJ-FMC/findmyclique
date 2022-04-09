@@ -7,7 +7,7 @@ import './SingleGroup.css';
 
 const SingleUserCard = ({ selectedUser }) => {
   return (
-    <Card sx={{ width: 400, height: 550 }}>
+    <Card sx={{ width: 375, height: 520 }}>
       <CardMedia
         component="img"
         sx={{ width: '100%', height: 320, objectFit: 'cover' }}

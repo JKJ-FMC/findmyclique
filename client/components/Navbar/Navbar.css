@@ -92,17 +92,18 @@ a:visited {
 }
 
 .menu-item span {
-  color: #310052;
+  color: black;
   padding: 3px;
 }
 
 .menu-icon {
   margin-right: 8px;
-  color: #310052;
+  color: black;
   padding: 3px;
 }
 
 .searchbar {
   align-self: center;
   justify-self: center;
+  margin-left: 10px;
 }

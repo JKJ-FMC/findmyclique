@@ -44,14 +44,14 @@ export default function SingleEvent() {
     dispatch(getUserGroup(id, userId));
   }, []);
 
-  console.log(id);
+  console.log('liked users', likedUsers);
 
   if (!group) return;
 
   return (
     <div className="single-evnt">
       <div
-        class="single-evnt-bg"
+        className="single-evnt-bg"
         style={{ backgroundImage: `url(${currEvent.largeImageUrl})` }}
       >
         <div class="bg-blur">
@@ -67,7 +67,7 @@ export default function SingleEvent() {
             />
             <CardContent>
               <div>
-                <h1>{currEvent.name}</h1>
+                <h1 className="single-event-title">{currEvent.name}</h1>
                 <div>{currEvent.category}</div>
                 <div>{currEvent.description}</div>
                 <div>
@@ -78,10 +78,10 @@ export default function SingleEvent() {
 
               <div className="evnt-groups">
                 <h2>Your potential group members</h2>
-                <AvatarGroup total={group.length}>
-                  {group.map((user, i) => {
+                <AvatarGroup total={likedUsers.length}>
+                  {likedUsers.map((user, i) => {
                     // const currUser = user.user;
-                    return <Avatar src={user.imageUrl} />;
+                    return <Avatar key={i} src={user.imageUrl} />;
                   })}
                 </AvatarGroup>
               </div>

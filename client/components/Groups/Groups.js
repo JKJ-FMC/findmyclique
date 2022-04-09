@@ -9,12 +9,13 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { likeEvent, unlikeEvent, getUserLikedEvents } from '../../store';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link } from 'react-router-dom';
+import { Button } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import './Groups.css';
 
-const Groups = ({ handleCloseGroupsModal }) => {
+const Groups = ({ handleCloseGroupsModal, events }) => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.auth.id) || 'not logged in';
@@ -35,23 +36,13 @@ const Groups = ({ handleCloseGroupsModal }) => {
 
   const userGroups = user.groups;
 
-  //   console.log('USER IN GROUPS COMP --->', userGroups);
+  const userGroupEvents = [];
 
-  const userEvents = [];
-
-  for (let i = 0; i < likedEvents.length; i++) {
-    let currEvent = likedEvents[i].event;
-    userEvents.push(currEvent);
-  }
-
-  let g = [];
   userGroups.forEach((group) =>
-    g.push(likedEvents.find((ev) => ev.id === group.eventId))
+    userGroupEvents.push(events.find((event) => event.id === group.eventId))
   );
 
-  console.log('USER GROUP EVENTS --->', g);
-
-  console.log('USER--->', user);
+  console.log('USER GROUP EVENTS', userGroupEvents);
 
   return (
     <div className="group-events-container">
@@ -61,7 +52,7 @@ const Groups = ({ handleCloseGroupsModal }) => {
       >
         <CardContent sx={{ flex: '1 0 auto' }}>
           <h1 className="group-events-page-title">My Groups</h1>
-          {userEvents.map((event) => {
+          {userGroupEvents.map((event) => {
             return (
               <div key={event.id} className="group-event">
                 {injectStyle()}
@@ -96,43 +87,15 @@ const Groups = ({ handleCloseGroupsModal }) => {
                         <div className="group-event-info">{event.location}</div>
                       </div>
                       <div className="group-event-icons">
-                        <div className="group-icon">
-                          <Link to={`/events/${event.city}/${event.id}`}>
-                            <VisibilityIcon
-                              fontSize="medium"
-                              onClick={() => handleCloseEventsModal()}
-                              style={{ color: '#310052' }}
-                              sx={{
-                                color: '#f06543',
-                                '&.Mui-checked': {
-                                  color: '#f06543',
-                                },
-                              }}
-                            />
+                        <div>
+                          <Link to={`/groups/${event.id}`}>
+                            <Button
+                              onClick={() => handleCloseGroupsModal()}
+                              color="secondary"
+                            >
+                              View My Group
+                            </Button>
                           </Link>
-                        </div>
-                        <div className="group-icon">
-                          <Checkbox
-                            className="checkbox"
-                            icon={<FavoriteBorder />}
-                            checkedIcon={<DeleteForeverIcon />}
-                            checked={!!currEvent(userId, event.id)}
-                            onClick={() => (userId ? '' : signUpToLike())}
-                            onChange={() => {
-                              userId
-                                ? !!currEvent(userId, event.id) === true
-                                  ? dispatch(unlikeEvent(userId, event.id))
-                                  : dispatch(likeEvent(userId, event.id))
-                                : '';
-                            }}
-                            sx={{
-                              color: '#f06543',
-                              '&.Mui-checked': {
-                                color: '#f06543',
-                              },
-                            }}
-                            size="medium"
-                          />
                         </div>
                       </div>
                     </CardContent>
