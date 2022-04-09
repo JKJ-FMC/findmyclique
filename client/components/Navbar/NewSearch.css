@@ -2,6 +2,7 @@
   max-height: 8rem;
   display: flex;
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 .searchResult img {

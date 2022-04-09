@@ -14,6 +14,7 @@ import axios from 'axios';
 import { Search } from './components/Navbar/Search';
 import Quiz from './components/Events/Quiz';
 import NewSearch from './components/Navbar/NewSearch';
+import ChatWindow from './components/Chat/ChatWindow';
 
 /**
  * COMPONENT
@@ -61,6 +62,7 @@ class Routes extends Component {
             <Route exact path="/events/:city" component={Events} />
             <Route exact path="/myevents/:id" component={UserEvents} />
             <Route exact path="/chat" component={Chat} />
+            <Route exact path="/chatwindow" component={ChatWindow} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/search" component={Search} />
             <Route exact path="/newsearch" component={NewSearch} />
@@ -85,6 +87,8 @@ class Routes extends Component {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/chat" component={Chat} />
+            <Route exact path="/chatwindow" component={ChatWindow} />
+
             <Route exact path="/" component={Login} />
             <Redirect to="/home" />
             {/* <Redirect to="/login" /> */}
