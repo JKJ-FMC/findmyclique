@@ -145,41 +145,45 @@ async function seed() {
   const kenny = await User.create({
     firstName: 'kenny',
     email: 'kenny@gmail.com',
-    password: '1234567',
+    password: 'findmyclique!',
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U02HB2E2YEQ-8ee79484eba7-512',
     bio: 'Rock star turned rock CSStar',
+    job: 'Software Engineer at JoeSchmoe Rock Star Inc',
   });
 
   const jordan = await User.create({
     firstName: 'jordan',
     email: 'jordan@gmail.com',
-    password: '1234567',
+    password: 'findmyclique!',
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U01UD247JCW-143cc32d8e1e-512',
-    bio: 'Bug',
+    bio: 'Bug Slayer',
+    job: 'Funemployed',
   });
 
   const jennifer = await User.create({
     firstName: 'jennifer',
     email: 'jennifer@gmail.com',
-    password: '1234567',
+    password: 'findmyclique!',
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U01J88VFDN2-06b6fdc48021-512',
     bio: 'Soy Sauce Salmon lover turned back-end brainiac',
+    job: "Jason Momoa's Trophy Wife",
   });
 
   const saad = await User.create({
     firstName: 'saad',
     email: 'saad@gmail.com',
-    password: '1234567',
+    password: 'findmyclique!',
     isAdmin: false,
     imageUrl:
       'https://ca.slack-edge.com/T024FPYBQ-U02H5SC0S0M-08b077f9ea60-512',
-    bio: '',
+    bio: 'Chat meister',
+    job: 'Delta Airlines Pilot',
   });
 
   // Creating Users
