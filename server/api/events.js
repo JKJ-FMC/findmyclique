@@ -17,7 +17,7 @@ module.exports = router;
 router.get('/', async (req, res, next) => {
   try {
     const events = await Event.findAll({
-      include: [UserToEvent, { model: Group, include: User }],
+      include: [{ model: UserToEvent, separate: true }, { model: Group, include: User, separate: true }],
     });
     console.log('total events', events.length);
     res.send(events);
