@@ -227,7 +227,7 @@ async function seed() {
   const allEvents = await Event.findAll();
 
   //seed questions for each event
-  await seedQuestions(allEvents)
+  // await seedQuestions(allEvents)
 
   await seedLikes(allEvents);
 
