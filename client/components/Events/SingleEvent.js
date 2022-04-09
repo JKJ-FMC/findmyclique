@@ -25,14 +25,16 @@ export default function SingleEvent() {
   const likedUsers = useSelector((state) =>
     state.likedEvents.filter((ev) => ev.likedEventId === id)
   );
+  console.log('likedUsers!!!', likedUsers);
 
   const userId = useSelector((state) => state.auth.id);
 
   const [group, setGroup] = useState([]);
 
   const currGroup =
-    useSelector((state) =>
-      state.groups && state.groups.find((group) => group.eventId === id)
+    useSelector(
+      (state) =>
+        state.groups && state.groups.filter((group) => group.eventId === id)
     ) || [];
 
   useEffect(() => {
@@ -88,7 +90,7 @@ export default function SingleEvent() {
                   <AvatarGroup total={likedUsers.length}>
                     {likedUsers.map((user, i) => {
                       // const currUser = user.user;
-                      return <Avatar key={i} src={user.imageUrl} />;
+                      return <Avatar key={i} src={user.user.imageUrl} />;
                     })}
                   </AvatarGroup>
                 </div>
