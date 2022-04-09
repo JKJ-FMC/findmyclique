@@ -9,6 +9,7 @@ const seedEvents = require('./seedEvents');
 const seedLikes = require('./seedLikes');
 const seedSeatGeek = require('./seedSeatGeek');
 const seedQuestions = require('./seedQuestions');
+const seedUsers = require('./seedUsers');
 const axios = require('axios');
 
 /**
@@ -18,6 +19,7 @@ const axios = require('axios');
  */
 
 let today = new Date();
+today.setDate(today.getDate() + 1);
 const dd = String(today.getDate()).padStart(2, '0');
 const mm = String(today.getMonth() + 1).padStart(2, '0');
 const year = today.getFullYear();
@@ -25,7 +27,7 @@ today = year + '-' + mm + '-' + dd;
 console.log('CURRENT DATE', today);
 
 let yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
+// yesterday.setDate(yesterday.getDate() - 1);
 const dd1 = String(yesterday.getDate()).padStart(2, '0');
 const mm1 = String(yesterday.getMonth() + 1).padStart(2, '0');
 const year1 = yesterday.getFullYear();
@@ -177,23 +179,24 @@ async function seed() {
   });
 
   // Creating Users
-  const users = await Promise.all(
-    Array(100)
-      .fill()
-      .map((ele) =>
-        User.create({
-          firstName: faker.name.firstName(),
-          lastName: faker.name.lastName(),
-          dateOfBirth: faker.date.past(),
-          imageUrl: faker.image.people(),
-          job: faker.name.jobTitle(),
-          bio: `I love ${faker.commerce.productAdjective()} ${faker.animal.fish()}`,
-          email: faker.internet.email(),
-          password: '1234567',
-          phoneNumber: faker.phone.phoneNumber(),
-        })
-      )
-  );
+  const users = await seedUsers();
+  // const users = await Promise.all(
+  //   Array(100)
+  //     .fill()
+  //     .map((ele) =>
+  //       User.create({
+  //         firstName: faker.name.firstName(),
+  //         lastName: faker.name.lastName(),
+  //         dateOfBirth: faker.date.past(),
+  //         imageUrl: faker.image.people(),
+  //         job: faker.name.jobTitle(),
+  //         bio: `I love ${faker.commerce.productAdjective()} ${faker.animal.fish()}`,
+  //         email: faker.internet.email(),
+  //         password: '1234567',
+  //         phoneNumber: faker.phone.phoneNumber(),
+  //       })
+  //     )
+  // );
 
   //event categories
   await Promise.all(
@@ -202,12 +205,53 @@ async function seed() {
     )
   );
 
-  //test event
+  //test event with groups
   const event1 = await Event.create({
-    name: 'EVENT TEST 1',
-    date: '2022-03-30',
+    name: 'Tyler, the Creator',
+    price: 95,
+    date: today,
+    imageUrl:
+      'https://dk2dv4ezy246u.cloudfront.net/widgets/sSnF4yNXgPE_large.jpg',
+    largeImageUrl:
+      'https://media.pitchfork.com/photos/60df879d316238f6226d2605/1:1/w_900,h_900,c_limit/TylerTheCreator_GettyImages-1325814253.jpg',
+    description:
+      'One of the most fascinating artistic evolutions since the late 2000s has been that of Tyler, The Creator. The rapper and producer surfaced as a founding member of Odd Future, an outlandish alternative rap crew that gradually permeated the mainstream as it begat a multitude of related projects.',
+    location: 'New York City, NY',
+    startTime: '7:00 pm',
+    isSoldOut: false,
+    venueName: 'Madison Square Garden',
+    venueAddress: '4 Pennsylvania Plaza, New York, NY 10001',
+    latitude: '40.7505',
+    longitude: '-73.9934',
+    ticketUrl:
+      'https://www.stubhub.com/tyler-the-creator-seattle-tickets-4-8-2022/event/104922534/',
+    category: 'concert',
+    city: 'nyc',
   });
 
+  //event 1 likes
+  [jennifer, kenny, jordan].map((currUser) => {
+    UserToEvent.create({
+      likedEventId: event1.id,
+      likedUserId: currUser.id,
+    });
+  });
+
+  //event 1 group
+  const event1Group = await Group.create({
+    eventId: event1.id,
+  });
+
+  await Promise.all(
+    [jennifer, kenny, jordan].map((currUser) => {
+      UserToGroup.create({
+        groupId: event1Group.id,
+        userId: currUser.id,
+      });
+    })
+  );
+
+  //test event with likes (no groups unassigned yet)
   //test event likes
   // await Promise.all(
   //   [jennifer, kenny, jordan, saad].map((currUser) => {
@@ -217,6 +261,34 @@ async function seed() {
   //     });
   //   })
   // );
+  const event2 = await Event.create({
+    name: 'John Mulaney',
+    price: 95,
+    date: today,
+    imageUrl: 'https://pyxis.nymag.com/v1/imgs/4f0/db3/d4e7ce771f77a4d3e4db7120a1f549e2fa-18-good-one-podcast-john-mulaney-3.rsquare.w700.jpg',
+    largeImageUrl: 'https://news-service.s3.amazonaws.com/comedy-trump-3b480b06-fcf5-11ea-9ceb-061d646d9c67.jpg',
+    description: "John Mulaney: Kid Gorgeous at Radio City is a 2018 stand-up comedy film written by and starring John Mulaney. The special was recorded live in February 2018 at the Radio City Music Hall in New York City,[1] and released by Netflix on May 1, 2018.[2]. Similarly to Mulaney's previous show, The Comeback Kid, Kid Gorgeous is a visually simplistic stand-up routine with a major emphasis upon observational humor.[3] The majority of jokes are centered upon Mulaney's marriage to Victorian lampshade designer Annamarie Tendler, adolescence, celebrity, politics and anxieties associated with contemporary American life.",
+    location: 'New York City, NY',
+    startTime: '7:00 pm',
+    isSoldOut: false,
+    venueName: 'Radio City Music Hall',
+    venueAddress: '4 Pennsylvania Plaza, New York, NY 10001',
+    latitude: '40.7600',
+    longitude: '-73.9800',
+    ticketUrl: 'https://www.stubhub.com/john-mulaney-new-haven-tickets-6-8-2022/event/105255096/',
+    category: 'comedy',
+    city: 'nyc',
+  });
+
+  //test event likes
+  await Promise.all(
+    [jennifer, kenny, jordan].map((currUser) => {
+      UserToEvent.create({
+        likedEventId: event2.id,
+        likedUserId: currUser.id,
+      });
+    })
+  );
 
   //events
   // const eventbrite = await seedEvents();
@@ -227,24 +299,18 @@ async function seed() {
   const allEvents = await Event.findAll();
 
   //seed questions for each event
+
   await seedQuestions(allEvents);
 
   await seedLikes(allEvents);
 
   // const allEvents = await Event.findAll();
-  // await seedLikes(allEvents);
 
   //console.log(seatGeek)
   await randomGroup(allEvents);
 
-  console.log(`seeded ${users.length + 1} users`);
   // console.log(`seeded ${events.length} events`);
   console.log(`seeded successfully`);
-  return {
-    users: {
-      cody: users[0],
-    },
-  };
 }
 
 /*

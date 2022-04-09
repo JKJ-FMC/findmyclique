@@ -9,6 +9,7 @@ const {
   UUIDV4,
   BIGINT,
   INTEGER,
+  TEXT
 } = require('sequelize');
 const db = require('../db');
 
@@ -39,7 +40,7 @@ Event.init(
       defaultValue: '/default.png',
     },
     description: {
-      type: STRING,
+      type: TEXT,
     },
     location: {
       type: STRING,

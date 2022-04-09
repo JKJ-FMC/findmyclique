@@ -24,12 +24,12 @@ const seedEvents = async () => {
   const eventType = {
     music: 'music', // exact category name: 'Music'
     // comedy: 'comedy', // exact category names: 'Performing & Visual Arts' || 'Film, Media & Entertainment'
-    foodDrink: 'food-and-drink', // exact category name: 'Food & Drink'
-    sports: 'sports-and-fitness', // exact category name: 'Sports & Fitness'
+    // foodDrink: 'food-and-drink', // exact category name: 'Food & Drink'
+    // sports: 'sports-and-fitness', // exact category name: 'Sports & Fitness'
   };
 
   let yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
+  // yesterday.setDate(yesterday.getDate() - 1);
   const dd1 = String(yesterday.getDate()).padStart(2, '0');
   const mm1 = String(yesterday.getMonth() + 1).padStart(2, '0');
   const year1 = yesterday.getFullYear();
@@ -38,9 +38,9 @@ const seedEvents = async () => {
   const cities = [
     'ny--new-york',
     'pa--philadelphia',
-    'ma--boston',
-    'il--chicago',
-    'ca--los-angeles',
+    // 'ma--boston',
+    // 'il--chicago',
+    // 'ca--los-angeles',
   ];
   const fetchUrl = async (eventType, city) => {
     const { data } = await axios.get(
@@ -149,48 +149,48 @@ const seedEvents = async () => {
   const nycFoodDrink = await fetchEvents('food-and-drink', 'ny--new-york');
   const nycSports = await fetchEvents('sports-and-fitness', 'ny--new-york');
 
-  //PHILLY EVENTS
-  const phillyMusic = await fetchEvents('music', 'pa--philadelphia');
-  const phillyFoodDrink = await fetchEvents(
-    'food-and-drink',
-    'pa--philadelphia'
-  );
-  const phillySports = await fetchEvents(
-    'sports-and-fitness',
-    'pa--philadelphia'
-  );
+  // //PHILLY EVENTS
+  // const phillyMusic = await fetchEvents('music', 'pa--philadelphia');
+  // const phillyFoodDrink = await fetchEvents(
+  //   'food-and-drink',
+  //   'pa--philadelphia'
+  // );
+  // const phillySports = await fetchEvents(
+  //   'sports-and-fitness',
+  //   'pa--philadelphia'
+  // );
 
-  //BOSTON EVENTS
-  const bostonMusic = await fetchEvents('music', 'ma--boston');
-  const bostonFoodDrink = await fetchEvents('food-and-drink', 'ma--boston');
-  const bostonSports = await fetchEvents('sports-and-fitness', 'ma--boston');
+  // //BOSTON EVENTS
+  // const bostonMusic = await fetchEvents('music', 'ma--boston');
+  // const bostonFoodDrink = await fetchEvents('food-and-drink', 'ma--boston');
+  // const bostonSports = await fetchEvents('sports-and-fitness', 'ma--boston');
 
-  //LA EVENTS
-  const laMusic = await fetchEvents('music', 'ca--los-angeles');
-  const laFoodDrink = await fetchEvents('food-and-drink', 'ca--los-angeles');
-  const laSports = await fetchEvents('sports-and-fitness', 'ca--los-angeles');
+  // //LA EVENTS
+  // const laMusic = await fetchEvents('music', 'ca--los-angeles');
+  // const laFoodDrink = await fetchEvents('food-and-drink', 'ca--los-angeles');
+  // const laSports = await fetchEvents('sports-and-fitness', 'ca--los-angeles');
 
-  //CHICAGO EVENTS
-  const chicagoMusic = await fetchEvents('music', 'il--chicago');
-  const chicagoFoodDrink = await fetchEvents('food-and-drink', 'il--chicago');
-  const chicagoSports = await fetchEvents('sports-and-fitness', 'il--chicago');
+  // //CHICAGO EVENTS
+  // const chicagoMusic = await fetchEvents('music', 'il--chicago');
+  // const chicagoFoodDrink = await fetchEvents('food-and-drink', 'il--chicago');
+  // const chicagoSports = await fetchEvents('sports-and-fitness', 'il--chicago');
 
   const totalEventBrite = [
     ...nycMusic,
     ...nycFoodDrink,
     ...nycSports,
-    ...phillyMusic,
-    ...phillyFoodDrink,
-    ...phillySports,
-    ...bostonMusic,
-    ...bostonFoodDrink,
-    ...bostonSports,
-    ...laMusic,
-    ...laFoodDrink,
-    ...laSports,
-    ...chicagoMusic,
-    ...chicagoFoodDrink,
-    ...chicagoSports,
+    // ...phillyMusic,
+    // ...phillyFoodDrink,
+    // ...phillySports,
+    // ...bostonMusic,
+    // ...bostonFoodDrink,
+    // ...bostonSports,
+    // ...laMusic,
+    // ...laFoodDrink,
+    // ...laSports,
+    // ...chicagoMusic,
+    // ...chicagoFoodDrink,
+    // ...chicagoSports,
   ];
 
   return totalEventBrite;

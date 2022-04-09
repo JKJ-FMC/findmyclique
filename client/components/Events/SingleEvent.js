@@ -20,24 +20,27 @@ export default function SingleEvent() {
   );
   if (!currEvent) return null;
 
+  console.log(currEvent);
+
   const likedUsers = useSelector((state) =>
     state.likedEvents.filter((ev) => ev.likedEventId === id)
   );
+  console.log('likedUsers!!!', likedUsers);
 
   const userId = useSelector((state) => state.auth.id);
 
-  // console.log('LIKED USERS --->', likedUsers.length);
+  const [group, setGroup] = useState([]);
 
-  useEffect(() => {}, []);
-  const group = useSelector((state) => state.groups.users || []);
-  console.log('groups -----> ', group);
-
-  // console.log('groups -----> ', group);
+  const currGroup =
+    useSelector(
+      (state) =>
+        state.groups && state.groups.filter((group) => group.eventId === id)
+    ) || [];
 
   useEffect(() => {
-    console.log(`LAT: ${currEvent.latitude}`);
-    console.log(`LONG: ${currEvent.longitude}`);
-  }, [currEvent.latitude]);
+    console.log('NEW GROUP', currGroup);
+    setGroup(currGroup);
+  }, [currGroup.length]);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -48,13 +51,14 @@ export default function SingleEvent() {
 
   if (!group) return;
 
+
   return (
     <div className="single-evnt">
       <div
         className="single-evnt-bg"
         style={{ backgroundImage: `url(${currEvent.largeImageUrl})` }}
       >
-        <div class="bg-blur">
+        <div className="bg-blur">
           <Card
             className="single-evnt-card"
             sx={{ width: 950, height: 1200, maxWidth: 950, maxHeight: 1400 }}
@@ -75,23 +79,37 @@ export default function SingleEvent() {
                 </div>
               </div>
               {/* </CardContent> */}
+              {group.users ? (
+                <div className="evnt-groups">
+                  <h2>Your group members</h2>
+                  <AvatarGroup total={group.users.length}>
+                    {group.users.map((user, i) => {
+                      // const currUser = user.user;
+                      return <Avatar key={i} src={user.imageUrl} />;
+                    })}
+                  </AvatarGroup>
+                </div>
+              ) : (
+                <div className="evnt-groups">
+                  <h2>Your potential group members</h2>
+                  <AvatarGroup total={likedUsers.length}>
+                    {likedUsers.map((user, i) => {
+                      // const currUser = user.user;
+                      return <Avatar key={i} src={user.user.imageUrl} />;
+                    })}
+                  </AvatarGroup>
+                </div>
+              )}
+              
+              {currEvent.latitude && (
+                <div id="map">
+                  <EventMap
+                    latitude={+currEvent.latitude}
+                    longitude={+currEvent.longitude}
+                  />
+                </div>
+              )}
 
-              <div className="evnt-groups">
-                <h2>Your potential group members</h2>
-                <AvatarGroup total={likedUsers.length}>
-                  {likedUsers.map((user, i) => {
-                    // const currUser = user.user;
-                    return <Avatar key={i} src={user.imageUrl} />;
-                  })}
-                </AvatarGroup>
-              </div>
-
-              <div id="map">
-                <EventMap
-                  latitude={+currEvent.latitude}
-                  longitude={+currEvent.longitude}
-                />
-              </div>
             </CardContent>
           </Card>
         </div>

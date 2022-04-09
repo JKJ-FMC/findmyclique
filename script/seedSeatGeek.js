@@ -17,7 +17,7 @@
 // //------------------------------------------------------------------
 
 let yesterday = new Date();
-yesterday.setDate(yesterday.getDate() - 1);
+// yesterday.setDate(yesterday.getDate() - 1);
 const dd1 = String(yesterday.getDate()).padStart(2, '0');
 const mm1 = String(yesterday.getMonth() + 1).padStart(2, '0');
 const year1 = yesterday.getFullYear();
@@ -33,20 +33,20 @@ const seedSeatGeek = async () => {
   let allEvents = [];
   const eventType = {
     concert: 'concert',
-    mlb: 'mlb',
-    nba: 'nba',
-    nfl: 'nfl',
-    nhl: 'nhl',
-    mls: 'mls',
+    // mlb: 'mlb',
+    // nba: 'nba',
+    // nfl: 'nfl',
+    // nhl: 'nhl',
+    // mls: 'mls',
     comedy: 'comedy',
   };
 
   const cities = {
     nyc: '11215',
     philly: '19128',
-    boston: '02101',
-    chicago: '60601',
-    la: '90001',
+    // boston: '02101',
+    // chicago: '60601',
+    // la: '90001',
   };
 
   const fetchEvents = async (eventType, city) => {
@@ -132,41 +132,41 @@ const seedSeatGeek = async () => {
   const nycNhl = await fetchEvents('nhl', '11215');
   const nycMls = await fetchEvents('mls', '11215');
 
-  //PHILLY EVENTS
-  const phillyConcert = await fetchEvents('concert', '19128');
-  const phillyComedy = await fetchEvents('comedy', '19128');
-  const phillyMlb = await fetchEvents('mlb', '19128');
-  const phillyNba = await fetchEvents('nba', '19128');
-  const phillyNfl = await fetchEvents('nfl', '19128');
-  const phillyNhl = await fetchEvents('nhl', '19128');
-  const phillyMls = await fetchEvents('mls', '19128');
+  // //PHILLY EVENTS
+  // const phillyConcert = await fetchEvents('concert', '19128');
+  // const phillyComedy = await fetchEvents('comedy', '19128');
+  // const phillyMlb = await fetchEvents('mlb', '19128');
+  // const phillyNba = await fetchEvents('nba', '19128');
+  // const phillyNfl = await fetchEvents('nfl', '19128');
+  // const phillyNhl = await fetchEvents('nhl', '19128');
+  // const phillyMls = await fetchEvents('mls', '19128');
 
-  //BOSTON EVENTS
-  const bostonConcert = await fetchEvents('concert', '02101');
-  const bostonComedy = await fetchEvents('comedy', '02101');
-  const bostonMlb = await fetchEvents('mlb', '02101');
-  const bostonNba = await fetchEvents('nba', '02101');
-  const bostonNfl = await fetchEvents('nfl', '02101');
-  const bostonNhl = await fetchEvents('nhl', '02101');
-  const bostonMls = await fetchEvents('mls', '02101');
+  // //BOSTON EVENTS
+  // const bostonConcert = await fetchEvents('concert', '02101');
+  // const bostonComedy = await fetchEvents('comedy', '02101');
+  // const bostonMlb = await fetchEvents('mlb', '02101');
+  // const bostonNba = await fetchEvents('nba', '02101');
+  // const bostonNfl = await fetchEvents('nfl', '02101');
+  // const bostonNhl = await fetchEvents('nhl', '02101');
+  // const bostonMls = await fetchEvents('mls', '02101');
 
-  //LA EVENTS
-  const laConcert = await fetchEvents('concert', '90001');
-  const laComedy = await fetchEvents('comedy', '90001');
-  const laMlb = await fetchEvents('mlb', '90001');
-  const laNba = await fetchEvents('nba', '90001');
-  const laNfl = await fetchEvents('nfl', '90001');
-  const laNhl = await fetchEvents('nhl', '90001');
-  const laMls = await fetchEvents('mls', '90001');
+  // //LA EVENTS
+  // const laConcert = await fetchEvents('concert', '90001');
+  // const laComedy = await fetchEvents('comedy', '90001');
+  // const laMlb = await fetchEvents('mlb', '90001');
+  // const laNba = await fetchEvents('nba', '90001');
+  // const laNfl = await fetchEvents('nfl', '90001');
+  // const laNhl = await fetchEvents('nhl', '90001');
+  // const laMls = await fetchEvents('mls', '90001');
 
-  //CHICAGO EVENTS
-  const chicagoConcert = await fetchEvents('concert', '60601');
-  const chicagoComedy = await fetchEvents('comedy', '60601');
-  const chicagoMlb = await fetchEvents('mlb', '60601');
-  const chicagoNba = await fetchEvents('nba', '60601');
-  const chicagoNfl = await fetchEvents('nfl', '60601');
-  const chicagoNhl = await fetchEvents('nhl', '60601');
-  const chicagoMls = await fetchEvents('mls', '60601');
+  // //CHICAGO EVENTS
+  // const chicagoConcert = await fetchEvents('concert', '60601');
+  // const chicagoComedy = await fetchEvents('comedy', '60601');
+  // const chicagoMlb = await fetchEvents('mlb', '60601');
+  // const chicagoNba = await fetchEvents('nba', '60601');
+  // const chicagoNfl = await fetchEvents('nfl', '60601');
+  // const chicagoNhl = await fetchEvents('nhl', '60601');
+  // const chicagoMls = await fetchEvents('mls', '60601');
 
   const totalSeatGeek = [
     ...nycConcert,
@@ -176,34 +176,34 @@ const seedSeatGeek = async () => {
     ...nycNfl,
     ...nycNhl,
     ...nycMls,
-    ...phillyConcert,
-    ...phillyComedy,
-    ...phillyMlb,
-    ...phillyNba,
-    ...phillyNfl,
-    ...phillyNhl,
-    ...phillyMls,
-    ...bostonConcert,
-    ...bostonComedy,
-    ...bostonMlb,
-    ...bostonNba,
-    ...bostonNfl,
-    ...bostonNhl,
-    ...bostonMls,
-    ...laConcert,
-    ...laComedy,
-    ...laMlb,
-    ...laNba,
-    ...laNfl,
-    ...laNhl,
-    ...laMls,
-    ...chicagoConcert,
-    ...chicagoComedy,
-    ...chicagoMlb,
-    ...chicagoNba,
-    ...chicagoNfl,
-    ...chicagoNhl,
-    ...chicagoMls,
+    // ...phillyConcert,
+    // ...phillyComedy,
+    // ...phillyMlb,
+    // ...phillyNba,
+    // ...phillyNfl,
+    // ...phillyNhl,
+    // ...phillyMls,
+    // ...bostonConcert,
+    // ...bostonComedy,
+    // ...bostonMlb,
+    // ...bostonNba,
+    // ...bostonNfl,
+    // ...bostonNhl,
+    // ...bostonMls,
+    // ...laConcert,
+    // ...laComedy,
+    // ...laMlb,
+    // ...laNba,
+    // ...laNfl,
+    // ...laNhl,
+    // ...laMls,
+    // ...chicagoConcert,
+    // ...chicagoComedy,
+    // ...chicagoMlb,
+    // ...chicagoNba,
+    // ...chicagoNfl,
+    // ...chicagoNhl,
+    // ...chicagoMls,
   ];
 
   // console.log('concerts', nycConcert[0]);

@@ -5,6 +5,8 @@ import { Router } from 'react-router-dom';
 import history from './history';
 import store from './store';
 import App from './App';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 ReactDOM.render(
   <Provider store={store}>
@@ -19,3 +21,4 @@ if (module.hot) {
   // Accept hot update
   module.hot.accept();
 }
+//
