@@ -20,6 +20,8 @@ export default function SingleEvent() {
   );
   if (!currEvent) return null;
 
+  console.log(currEvent);
+
   const likedUsers = useSelector((state) =>
     state.likedEvents.filter((ev) => ev.likedEventId === id)
   );

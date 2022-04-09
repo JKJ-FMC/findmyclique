@@ -29,7 +29,7 @@ const seedEvents = async () => {
   };
 
   let yesterday = new Date();
-  yesterday.setDate(yesterday.getDate() - 1);
+  // yesterday.setDate(yesterday.getDate() - 1);
   const dd1 = String(yesterday.getDate()).padStart(2, '0');
   const mm1 = String(yesterday.getMonth() + 1).padStart(2, '0');
   const year1 = yesterday.getFullYear();
