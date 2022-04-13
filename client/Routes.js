@@ -19,9 +19,7 @@ import { ToastContainer, Slide } from 'react-toastify';
 import axios from 'axios';
 import { Search } from './components/Navbar/Search';
 import Quiz from './components/Events/Quiz';
-
 import SingleGroup from './components/Groups/SingleGroup';
-
 import NewSearch from './components/Navbar/NewSearch';
 import ChatWindow from './components/Chat/ChatWindow';
 

@@ -25,17 +25,20 @@ const Footer = () => {
           <div className="ft-headline">
             <h4>EVENTS</h4>
           </div>
-          <Link className="ft-link-ft" to={'/'}>
-            <p>CONCERTS</p>
+          <Link className="ft-link-ft" to={'/events/nyc'}>
+            <p>NEW YORK</p>
           </Link>
-          <Link className="ft-link-ft" to={'/'}>
-            <p>SPORTS</p>
+          <Link className="ft-link-ft" to={'/events/boston'}>
+            <p>BOSTON</p>
           </Link>
-          <Link className="ft-link-ft" to={'/'}>
-            <p>COMEDY</p>
+          <Link className="ft-link-ft" to={'/events/philly'}>
+            <p>PHILADELPHIA</p>
           </Link>
-          <Link className="ft-link-ft" to={'/'}>
-            <p>FOOD & DRINK</p>
+          <Link className="ft-link-ft" to={'/events/la'}>
+            <p>LOS ANGELES</p>
+          </Link>
+          <Link className="ft-link-ft" to={'/events/chicago'}>
+            <p>CHICAGO</p>
           </Link>
         </div>
         <div className="ft-center">
