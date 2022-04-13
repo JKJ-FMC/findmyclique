@@ -12,6 +12,7 @@
 
 .ft-wrapper {
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 
@@ -39,7 +40,7 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .ft-left p {
@@ -53,7 +54,7 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .ft-center p {
@@ -72,7 +73,7 @@
   text-align: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .ft-right-wrap {
@@ -87,7 +88,7 @@
 
 .ft-link-ft:hover {
   text-decoration: underline;
-  color: #310052;
+  color: black;
 }
 
 @media only screen and (max-width: 600px) {
