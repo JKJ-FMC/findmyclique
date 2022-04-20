@@ -8,6 +8,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import FeaturedEvent from './Events/FeaturedEvent';
 
+import './TrendingEvents.css';
+
 const TrendingEvents = () => {
   const events = useSelector((state) => state.events) || [];
 
