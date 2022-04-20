@@ -40,7 +40,7 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  /* margin-top: 20px; */
+  margin-top: 15px;
 }
 
 .ft-left p {
@@ -54,7 +54,7 @@
   flex-direction: column;
   text-align: center;
   align-items: center;
-  /* margin-top: 20px; */
+  margin-top: 15px;
 }
 
 .ft-center p {
@@ -73,7 +73,7 @@
   text-align: center;
   flex-direction: column;
   align-items: center;
-  /* margin-top: 20px; */
+  margin-top: 15px;
 }
 
 .ft-right-wrap {

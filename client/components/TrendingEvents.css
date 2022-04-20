@@ -1,11 +1,16 @@
+.trending {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 .mySwiper {
+  display: flex;
+  width: 75%;
 }
 
 .swiper-slide {
-}
-
-.home-title {
-  margin-top: 15px;
-  font-family: Roboto;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

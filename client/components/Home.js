@@ -9,12 +9,12 @@ const Home = () => {
   const events = useSelector((state) => state.events) || [];
 
   return (
-    <div>
+    <div className="home">
       <div className="home-top">
         <img className="home-bg" src={HomeImage} />
         <div className="home-img-txt">FIND MY CLIQUE</div>
       </div>
-      <div>
+      <div className="home-title-box">
         <h1 className="home-title">Trending Events</h1>
       </div>
       <TrendingEvents />

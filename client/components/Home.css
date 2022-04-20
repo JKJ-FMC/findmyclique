@@ -1,5 +1,3 @@
-/* @import url(https://fonts.googleapis.com/css2?family=Roboto:wght@700;900&display=swap); */
-
 .fade {
   width: 100vw;
   height: 100vh;
@@ -12,26 +10,27 @@
 }
 
 .home-title-box {
+  display: flex;
+  justify-content: center;
   width: 100%;
   height: 60px;
-  border: 1px solid red;
 }
 
 .home-title {
   margin-top: 15px;
   font-family: Roboto;
   text-align: center;
+  width: 250px;
 }
 
 img.home-bg {
-  /* position: fixed; */
   top: 0;
   left: 0;
   z-index: -1;
-
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+  margin-bottom: 12px;
 }
 
 .home-img-txt {
@@ -59,20 +58,4 @@ img.home-bg {
 
 .header-1 {
   color: #000000;
-}
-
-/* .cat-change {
-  transition: fade 1s ease;
-  color: beige;
-  position: absolute;
-} */
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
 }
