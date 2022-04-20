@@ -4,7 +4,7 @@ Find My Clique is an fullstack events-driven social app, where a user can attend
 
 Developers: Jennifer Lu, Jordan Blackwell, and Kenny Zammito
 
-## Technolgies
+## Technologies
 
 Javascript, React, Redux, Express, Sequelize, PostgreSQL, Google Maps API, Eventbrite API, SeatGeek API
 
