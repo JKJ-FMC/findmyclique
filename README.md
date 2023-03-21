@@ -1,6 +1,6 @@
 # Find My Clique
 
-Find My Clique is an fullstack events-driven social app, where a user can attend events in their city and meet new people.
+Find My Clique is a fullstack events-driven social app, where a user can attend events in their city and meet new people.
 
 Developers: Jennifer Lu, Jordan Blackwell, and Kenny Zammito
 
